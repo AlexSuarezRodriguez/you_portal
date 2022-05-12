@@ -1,7 +1,8 @@
 import React from 'react';
+import Presentation from '../../components/Presentation';
 
-const index = () => (
-  <div>index</div>
-);
+function Homepage() {
+  return <Presentation />;
+}
 
-export default index;
+export default Homepage;
