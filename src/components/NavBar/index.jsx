@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { HOME_ROUTE, ABOUT } from '../../constants/Routes';
+import { NavLink } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 // import './NavBar.css';
 
 import { VscBracketDot } from 'react-icons/vsc';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { HOME_ROUTE, ABOUT } from '../../constants/Routes';
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -45,12 +46,19 @@ function Navbar() {
           </IconLogoMobile>
 
           <Menu click={click}>
+
             <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>HOME</MenuItemLink>
+              <MenuItemLink>
+                <NavHashLink to={HOME_ROUTE}>
+                  HOME
+                </NavHashLink>
+              </MenuItemLink>
             </MenuItem>
+
             <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>ABOUT</MenuItemLink>
+              <MenuItemLink><NavLink to={ABOUT}>ABOUT</NavLink></MenuItemLink>
             </MenuItem>
+
             <MenuItem onClick={() => changeClick()}>
               <MenuItemLink>SERVICIOS</MenuItemLink>
             </MenuItem>
