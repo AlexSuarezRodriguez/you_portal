@@ -6,7 +6,7 @@ export const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   z-index: 99;
-  background-color: #49426c;
+  background-color: #171c27;
 `;
 
 export const NavbarWrapper = styled.div`
@@ -25,7 +25,7 @@ export const IconLogo = styled.div`
   justify-content: flex-start;
   align-items: center;
   font-family: "Poppins";
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #ebc08b;
   padding-left: 1rem;
 `;
@@ -43,10 +43,10 @@ export const Menu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-100%')};
     flex-direction: column ;
     transition: 0.5s all ease-in;
-    background-color: #49426c ;
+    background-color: #171c27 ;
   }
 `;
-export const MenuItem = styled.li`
+export const MenuItem = styled.a`
   height:100% ;
   padding: 0.5rem 1.5rem ;
   display: flex ;
@@ -57,7 +57,7 @@ export const MenuItem = styled.li`
   font-weight: 400 ;
 
   &:hover{
-    background-color: #343257;
+    background-color: #171c27;
     border-bottom: 0.3rem solid #ebc08b;
     transition: 0.4s ease-in;
   }
