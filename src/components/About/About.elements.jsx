@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const AboutContainer = styled.section`
   width: 100%;
   height: 650px;
+  font-family:'Poppins' ;
 `;
 export const AboutWrapper = styled.div`
   padding: 20px ;
@@ -63,7 +64,7 @@ export const ButtonContact = styled.button`
     padding: 1rem 12px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     font-size: 16px;
     cursor: pointer ;
     border-radius:12px ;
@@ -81,10 +82,10 @@ export const AboutDetails = styled.div`
 
  p{
    margin:0 auto ;
-   font-size: 2.5rem;
+   font-size: 2rem;
  }
  span{
    margin:0 auto ;
-   font-size: 1.2rem;
+   font-size: 1rem;
  }
 `;

@@ -18,7 +18,7 @@ function Contact() {
     <ContactContainer id="about">
       <ContactWrapper>
         <ContactTitle>
-          <p style={{ fontSize: '3.5rem' }}>contacto</p>
+          <p style={{ fontSize: '3rem' }}>contacto</p>
         </ContactTitle>
         <ContactTaget>
           <ContactInformation>

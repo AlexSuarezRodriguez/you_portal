@@ -56,10 +56,10 @@ export const AboutDetails = styled.div`
   text-align: justify;
 
  p{
-   font-size: 2.5rem;
+   font-size: 2.1rem;
  }
  span{
-   font-size: 1.2rem;
+   font-size: 1.05rem;
  }
 `;
 export const IconCard = styled.div`

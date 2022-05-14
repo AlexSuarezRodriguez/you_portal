@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
-// import './NavBar.css';
 
 import { VscBracketDot } from 'react-icons/vsc';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { HOME_ROUTE, ABOUT } from '../../constants/Routes';
+import { useAuth } from '../../context/authContext';
+import { HOME_ROUTE, LOGIN } from '../../constants/Routes';
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -16,19 +16,13 @@ import {
   MenuItem,
   IconLogoMobile,
 } from './Navbar.elements';
-// function NavBar() {
-//   return (
-//     <nav>
-//       <NavLink to={HOME_ROUTE}>home</NavLink>
-//       <NavLink to={ABOUT}>about</NavLink>
-//     </nav>
-//   );
-// }
 
-// export default NavBar;
 function Navbar() {
   const [click, setClick] = useState(true);
-
+  const { user, logOut } = useAuth();
+  const handleLogout = async () => {
+    await logOut();
+  };
   const changeClick = () => {
     setClick(!click);
   };
@@ -56,15 +50,27 @@ function Navbar() {
             </MenuItem>
 
             <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink><NavLink to={ABOUT}>ABOUT</NavLink></MenuItemLink>
+              <MenuItemLink>ABOUT</MenuItemLink>
             </MenuItem>
 
             <MenuItem onClick={() => changeClick()}>
               <MenuItemLink>SERVICIOS</MenuItemLink>
             </MenuItem>
+
             <MenuItem onClick={() => changeClick()}>
               <MenuItemLink>CONTACTO</MenuItemLink>
             </MenuItem>
+
+            {user ? (
+              <MenuItem onClick={() => changeClick()}>
+                <MenuItemLink onClick={handleLogout}>Cerrar Sesion</MenuItemLink>
+              </MenuItem>
+            )
+              : (
+                <MenuItem onClick={() => changeClick()}>
+                  <MenuItemLink><NavLink to={LOGIN}>Iniciar Sesion</NavLink></MenuItemLink>
+                </MenuItem>
+              )}
           </Menu>
         </NavbarWrapper>
       </NavbarContainer>
