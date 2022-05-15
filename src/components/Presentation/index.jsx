@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa';
 import { GoMarkGithub } from 'react-icons/go';
 import { AiOutlineSend } from 'react-icons/ai';
@@ -23,20 +22,20 @@ function Presentation() {
             <a href="https://www.google.com/">
               <FaFacebookMessenger />
             </a>
-            <Link to="https://www.google.com/">
+            <a href="https://www.google.com/">
               <FaWhatsapp />
-            </Link>
-            <Link to="https://www.google.com/">
+            </a>
+            <a href="https://www.google.com/">
               <GoMarkGithub />
-            </Link>
+            </a>
           </SocialInformation>
           <ImageInformation src={perfil} alt="" />
         </ImageWrapper>
         <InformationWrapper>
-          <p style={{ fontSize: '3rem' }}>
-            Hola mi nombre es Alexander Ruarez R
+          <p style={{ fontSize: '2.5rem' }}>
+            Hola soy Alexander Ruarez R
           </p>
-          <div style={{ fontSize: '1.5rem' }}>
+          <div style={{ fontSize: '1.2rem' }}>
             <p>soy un desarrolador Full-stack:</p>
             <p>
               tengo conocimientos en desarrollo de aplicaciones web y movil,

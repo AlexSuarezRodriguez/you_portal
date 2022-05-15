@@ -48,18 +48,19 @@ export const Menu = styled.ul`
 `;
 export const MenuItem = styled.a`
   height:100% ;
-  padding: 0.5rem 1.5rem ;
+  padding: 0.5rem 0.7rem ;
   display: flex ;
   justify-content: center ;
   align-items: center ;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: "Poppins";
   font-weight: 400 ;
+  cursor:pointer ;
 
   &:hover{
     background-color: #171c27;
-    border-bottom: 0.3rem solid #ebc08b;
-    transition: 0.4s ease-in;
+    border-bottom: 0.45rem solid #ebc08b;
+    transition: 0.2s ease-in;
   }
 
   @media screen and (max-width:960px){

@@ -10,12 +10,12 @@ import {
   IconCard,
 } from './Services.elements';
 
-function About() {
+function Services() {
   return (
     <ServiceContainer id="about">
       <ServiceWrapper>
         <ServiceTitle>
-          <p style={{ fontSize: '3.5rem' }}>Servicios</p>
+          <p style={{ fontSize: '3rem' }}>Servicios</p>
         </ServiceTitle>
         <AboutAbility>
           <AboutDetails>
@@ -73,4 +73,4 @@ function About() {
   );
 }
 
-export default About;
+export default Services;

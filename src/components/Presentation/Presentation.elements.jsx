@@ -62,7 +62,7 @@ export const ButtonContact = styled.button`
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     font-size: 16px;
     cursor: pointer ;
 
