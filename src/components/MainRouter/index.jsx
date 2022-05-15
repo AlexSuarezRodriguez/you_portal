@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HOME_ROUTE, LOGIN, REGISTER, FORGOT_PASSWORD } from '../../constants/Routes';
+import { HOME_ROUTE, LOGIN, REGISTER, FORGOT_PASSWORD, FORM_TEMPLATE } from '../../constants/Routes';
 import Navbar from '../NavBar';
 import HomePage from '../../page/HomePage';
 import Login from '../../page/Login';
 import Register from '../../page/Register';
 import ForgotPassword from '../../page/ForgotPassword';
+import FormTemplate from '../../page/FormTemplate';
 
 function Mainrouter() {
   return (
@@ -15,6 +16,7 @@ function Mainrouter() {
         <Route path={LOGIN} element={<Login />} />
         <Route path={REGISTER} element={<Register />} />
         <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
+        <Route path={FORM_TEMPLATE} element={<FormTemplate />} />
       </Routes>
     </BrowserRouter>
   );
