@@ -8,7 +8,6 @@ import { useAuth } from '../../context/authContext';
 
 function Homepage() {
   const { user, logOut, loading } = useAuth();
-  console.log(user);
   const handleLogout = async () => {
     await logOut();
   };

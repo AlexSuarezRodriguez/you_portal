@@ -37,12 +37,6 @@ function Login() {
     }
   };
 
-  // eslint-disable-next-line consistent-return
-  const handleResetPassword = () => {
-    if (!user.email) return setMenError('Por favor ingrese un email');
-    console.log('reset');
-  };
-
   return (
     <div className="bg-[#171c27] h-screen text-black flex">
       <div className="w-full max-w-xl m-auto">
@@ -86,13 +80,12 @@ function Login() {
                 >
                   Iniciar Sesion
                 </button>
-                <a
-                  href="#!"
+                <Link
+                  to="/forgorPassword"
                   className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                  onClick={handleResetPassword}
                 >
                   Restablecer contraseña
-                </a>
+                </Link>
               </div>
             </form>
             <button
@@ -105,7 +98,6 @@ function Login() {
               </div>
               Iniciar con Google
             </button>
-
           </div>
         </div>
       </div>

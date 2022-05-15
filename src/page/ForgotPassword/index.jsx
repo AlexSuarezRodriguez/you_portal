@@ -3,23 +3,36 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import Alert from '../../components/Alert';
 
-function Register() {
+function Login() {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
   const [menError, setMenError] = useState();
   const navigate = useNavigate();
-  const { signUp } = useAuth();
+  const { login, resetPassword } = useAuth();
+
   const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setMenError('');
     try {
-      await signUp(user.email, user.password);
+      await login(user.email, user.password);
       navigate('/');
+    } catch (error) {
+      setMenError(error.message);
+    }
+  };
+
+  // eslint-disable-next-line consistent-return
+  const handleResetPassword = async () => {
+    if (!user.email) return setMenError('Por favor ingrese un email');
+    try {
+      await resetPassword(user.email);
+      setMenError('revisa tu bandeja de entrada, al correo ingresado se ha enviado un link para recuperar la contraseña');
     } catch (error) {
       setMenError(error.message);
     }
@@ -44,31 +57,23 @@ function Register() {
                   />
                 </label>
               </div>
-              <div className="mb-4">
-                <label htmlFor="password" className="grid text-gray-700 text-sm font-bold mb-2">
-                  password
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="*****"
-                    onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </label>
-              </div>
+              <a
+                href="#!"
+                className="flex justify-center bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
+                onClick={handleResetPassword}
+              >
+                Restablecer contraseña
+              </a>
+
+              <p className="my-4 text-sm flex justify-center px-3">
+                ¿Aun no tienes una cuenta?
+                <Link to="/register" className="underline hover:text-blue-800 font-bold">Registrate</Link>
+              </p>
               <p className="my-4 text-sm flex justify-center px-3">
                 ¿Ya tienes una cuenta?
-                <Link to="/login" className="underline hover:text-blue-800 font-bold">Iniciar Sesión</Link>
+                <Link to="/login" className="underline hover:text-blue-800 font-bold">Iniciar Sesion</Link>
               </p>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
-              >
-                Registrarse
-              </button>
             </form>
-
           </div>
         </div>
       </div>
@@ -76,4 +81,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
