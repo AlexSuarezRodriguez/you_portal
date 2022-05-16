@@ -5,9 +5,11 @@ import Stepper from '../../components/Stepper';
 import StepperControl from '../../components/StepperControl';
 import { UseContextProvider } from '../../context/StepperContext';
 
-import Account from '../../components/steps/Account';
-import Details from '../../components/steps/Details';
-import Payment from '../../components/steps/Payment';
+import PresentationUser from '../../components/steps/PresentationUser';
+import About from '../../components/steps/About';
+import Service from '../../components/steps/Service';
+import Confirmation from '../../components/steps/Confirmation';
+import Contact from '../../components/steps/Contact';
 import Final from '../../components/steps/Final';
 
 function App() {
@@ -19,18 +21,23 @@ function App() {
     'Servicios',
     'Contacto',
     'Complete',
+    'final',
   ];
 
   // eslint-disable-next-line consistent-return
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return <Account />;
+        return <PresentationUser />;
       case 2:
-        return <Details />;
+        return <About />;
       case 3:
-        return <Payment />;
+        return <Service />;
       case 4:
+        return <Contact />;
+      case 5:
+        return <Confirmation />;
+      case 6:
         return <Final />;
       default:
     }
@@ -63,6 +70,7 @@ function App() {
           steps={steps}
         />
       )}
+
     </div>
   );
 }

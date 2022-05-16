@@ -17,40 +17,26 @@ export default function Account() {
         <div className="my-2 flex rounded border border-gray-200 bg-white p-1">
           <input
             onChange={handleChange}
-            value={userData.username || ''}
-            name="username"
-            placeholder="Username"
+            value={userData.name || ''}
+            name="name"
+            placeholder="Nombre Completo"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
           />
         </div>
       </div>
       <div className="mx-2 w-full flex-1">
         <div className="mt-3 h-6 text-xs font-bold uppercase leading-8 text-gray-500">
-          Password
+          Descripcion
         </div>
         <div className="my-2 flex rounded border border-gray-200 bg-white p-1">
-          <input
-            onChange={handleChange}
-            value={userData.password || ''}
-            name="password"
-            placeholder="Password"
-            type="password"
-            className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
-          />
-        </div>
-      </div>
-      <div className="mx-2 w-full flex-1">
-        <div className="mt-3 h-6 text-xs font-bold uppercase leading-8 text-gray-500">
-          Password
-        </div>
-        <div className="my-2 flex rounded border border-gray-200 bg-white p-1">
-          <input
+          <textarea
             onChange={handleChange}
             value={userData.description || ''}
-            name="information"
+            name="description"
             placeholder="como te describes"
             type="text"
-            className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
+            maxLength="250"
+            className="w-full h-24 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"
           />
         </div>
       </div>
