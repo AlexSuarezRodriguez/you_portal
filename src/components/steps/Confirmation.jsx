@@ -8,7 +8,7 @@ export default function Final() {
       <div className="flex flex-col items-center">
         <div className="wrapper">
           {
-          array.map((element) => <p>{(userData[element])}</p>)
+          array.map((element) => <p key={element}>{(userData[element])}</p>)
         }
         </div>
 

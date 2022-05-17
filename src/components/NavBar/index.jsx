@@ -57,14 +57,15 @@ function Navbar() {
               <MenuItemLink>SERVICIOS</MenuItemLink>
             </MenuItem>
 
-            <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink><NavLink to={FORM_TEMPLATE}>formulario</NavLink></MenuItemLink>
-            </MenuItem>
-
             {user ? (
-              <MenuItem onClick={() => changeClick()}>
-                <MenuItemLink onClick={handleLogout}>Cerrar Sesion</MenuItemLink>
-              </MenuItem>
+              <>
+                <MenuItem onClick={() => changeClick()}>
+                  <MenuItemLink><NavLink to={FORM_TEMPLATE}>formulario</NavLink></MenuItemLink>
+                </MenuItem>
+                <MenuItem onClick={() => changeClick()}>
+                  <MenuItemLink onClick={handleLogout}>Cerrar Sesion</MenuItemLink>
+                </MenuItem>
+              </>
             )
               : (
                 <MenuItem onClick={() => changeClick()}>
