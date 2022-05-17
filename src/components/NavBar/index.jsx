@@ -6,7 +6,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import { VscBracketDot } from 'react-icons/vsc';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../../context/authContext';
-import { HOME_ROUTE, LOGIN } from '../../constants/Routes';
+import { HOME_ROUTE, LOGIN, FORM_TEMPLATE } from '../../constants/Routes';
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -57,14 +57,15 @@ function Navbar() {
               <MenuItemLink>SERVICIOS</MenuItemLink>
             </MenuItem>
 
-            <MenuItem onClick={() => changeClick()}>
-              <MenuItemLink>CONTACTO</MenuItemLink>
-            </MenuItem>
-
             {user ? (
-              <MenuItem onClick={() => changeClick()}>
-                <MenuItemLink onClick={handleLogout}>Cerrar Sesion</MenuItemLink>
-              </MenuItem>
+              <>
+                <MenuItem onClick={() => changeClick()}>
+                  <MenuItemLink><NavLink to={FORM_TEMPLATE}>formulario</NavLink></MenuItemLink>
+                </MenuItem>
+                <MenuItem onClick={() => changeClick()}>
+                  <MenuItemLink onClick={handleLogout}>Cerrar Sesion</MenuItemLink>
+                </MenuItem>
+              </>
             )
               : (
                 <MenuItem onClick={() => changeClick()}>

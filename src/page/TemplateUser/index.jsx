@@ -1,18 +1,22 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import Presentation from '../../components/Presentation';
 import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
 import { useAuth } from '../../context/authContext';
+import { getCollection } from '../../create.collections';
 
-function Homepage() {
-  const { user, logOut, loading } = useAuth();
-  console.log(user);
-  const handleLogout = async () => {
-    await logOut();
-  };
+function HomepageUSer() {
+  const { user, loading } = useAuth();
+
   if (loading) return <h1>Cargando</h1>;
+  const [data, setData] = useState([]);
+  console.log(data);
+  useEffect(() => {
+    getCollection('informationUser').then((element) => {
+      setData(element);
+    });
+  }, []);
   return (
     <div style={{ heigth: '100vh' }}>
       <Presentation />
@@ -21,17 +25,9 @@ function Homepage() {
       <Contact />
       {user && (
         <>
-          <h1>
-            welcome
-            {' '}
-            {user.uid}
-          </h1>
-          <button
-            type="button"
-            onClick={handleLogout}
-          >
-            Cerrar Sesion
-          </button>
+          {
+          data.map((element) => <p key={element.id}>{element.name}</p>)
+        }
         </>
       )}
     </div>
@@ -39,4 +35,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomepageUSer;
