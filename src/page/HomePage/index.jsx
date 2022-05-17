@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import Presentation from '../../components/Presentation';
 import About from '../../components/About';
 import Services from '../../components/Services';
@@ -7,10 +7,15 @@ import Contact from '../../components/Contact';
 import { useAuth } from '../../context/authContext';
 
 function Homepage() {
-  const { user, logOut, loading } = useAuth();
+  const navigate = useNavigate();
+  const { user, loading } = useAuth();
   console.log(user);
-  const handleLogout = async () => {
-    await logOut();
+  // const handleLogout = async () => {
+  //   await logOut();
+  // };
+
+  const handleNavigate = () => {
+    navigate(`/youPortal/${user.uid}`);
   };
   if (loading) return <h1>Cargando</h1>;
   return (
@@ -28,7 +33,7 @@ function Homepage() {
           </h1>
           <button
             type="button"
-            onClick={handleLogout}
+            onClick={handleNavigate}
           >
             Cerrar Sesion
           </button>

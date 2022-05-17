@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
 import { VscBracketDot } from 'react-icons/vsc';
@@ -18,6 +18,7 @@ import {
 } from './Navbar.elements';
 
 function Navbar() {
+  const navigate = useNavigate();
   const [click, setClick] = useState(true);
   const { user, logOut } = useAuth();
   const handleLogout = async () => {
@@ -25,6 +26,9 @@ function Navbar() {
   };
   const changeClick = () => {
     setClick(!click);
+  };
+  const changeNav = () => {
+    navigate(`/youPortal/${user.uid}`);
   };
   return (
     <>
@@ -59,6 +63,9 @@ function Navbar() {
 
             {user ? (
               <>
+                <MenuItem onClick={() => changeNav()}>
+                  <MenuItemLink><NavLink to={FORM_TEMPLATE}>inicia</NavLink></MenuItemLink>
+                </MenuItem>
                 <MenuItem onClick={() => changeClick()}>
                   <MenuItemLink><NavLink to={FORM_TEMPLATE}>formulario</NavLink></MenuItemLink>
                 </MenuItem>

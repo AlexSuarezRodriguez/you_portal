@@ -5,23 +5,24 @@ import { useAuth } from '../../context/authContext';
 import Alert from '../../components/Alert';
 
 function Login() {
-  const [user, setUser] = useState({
+  const [userLogin, setUserLogin] = useState({
     email: '',
     password: '',
   });
   const [menError, setMenError] = useState();
   const navigate = useNavigate();
-  const { login, loginWithGoogle } = useAuth();
+  // eslint-disable-next-line no-unused-vars
+  const { login, loginWithGoogle, user } = useAuth();
 
   const handleChange = ({ target: { name, value } }) => {
-    setUser({ ...user, [name]: value });
+    setUserLogin({ ...userLogin, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setMenError('');
     try {
-      await login(user.email, user.password);
+      await login(userLogin.email, userLogin.password);
       navigate('/');
     } catch (error) {
       setMenError(error.message);

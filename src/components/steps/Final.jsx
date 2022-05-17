@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useStepperContext } from '../../context/StepperContext';
-import { createDocument } from '../../create.collections';
+import { setDocument } from '../../create.collections';
 import { useAuth } from '../../context/authContext';
 
 // eslint-disable-next-line react/prop-types
@@ -8,8 +8,9 @@ export default function StepperControl({ handleClick, currentStep }) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { userData } = useStepperContext();
+  const newData = { ...userData, uid: user.uid };
   function handleSubmitInformation() {
-    createDocument('informationUser', userData);
+    setDocument('informationUser', newData);
     navigate(`/youPortal/${user.uid}`);
   }
   return (
