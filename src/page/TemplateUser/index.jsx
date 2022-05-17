@@ -5,19 +5,17 @@ import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
 import { useAuth } from '../../context/authContext';
-import { getCollection } from '../../create.collections';
+import { getDocument } from '../../create.collections';
 
 function HomepageUSer() {
   // eslint-disable-next-line no-unused-vars
   const { user, loading } = useAuth();
-  // eslint-disable-next-line no-unused-vars
   const params = useParams();
-
   if (loading) return <h1>Cargando</h1>;
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState([]);
-  console.log(data);
   useEffect(() => {
-    getCollection('informationUser').then((element) => {
+    getDocument('informationUser', params.idUser).then((element) => {
       setData(element);
     });
   }, []);
@@ -27,13 +25,6 @@ function HomepageUSer() {
       <About />
       <Services />
       <Contact />
-      {/* {user && (
-        <>
-          {
-          data.map((element) => <p key={element.id}>{element.name}</p>)
-        }
-        </>
-      )} */}
     </div>
 
   );

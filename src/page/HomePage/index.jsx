@@ -9,11 +9,6 @@ import { useAuth } from '../../context/authContext';
 function Homepage() {
   const navigate = useNavigate();
   const { user, loading } = useAuth();
-  console.log(user);
-  // const handleLogout = async () => {
-  //   await logOut();
-  // };
-
   const handleNavigate = () => {
     navigate(`/youPortal/${user.uid}`);
   };
