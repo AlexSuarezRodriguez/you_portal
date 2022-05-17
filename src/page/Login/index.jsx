@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { useAuth } from '../../context/authContext';
@@ -23,7 +23,6 @@ function Login() {
     setMenError('');
     try {
       await login(userLogin.email, userLogin.password);
-      navigate('/');
     } catch (error) {
       setMenError(error.message);
     }
@@ -32,12 +31,16 @@ function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await loginWithGoogle();
-      navigate('/');
     } catch (error) {
       setMenError(error.message);
     }
   };
 
+  useEffect(() => {
+    if (user && user.uid) {
+      navigate(`/youPortal/${user.uid}`);
+    }
+  }, [user]);
   return (
     <div className="bg-[#171c27] h-screen text-black flex">
       <div className="w-full max-w-xl m-auto">
