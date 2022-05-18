@@ -26,6 +26,7 @@ function HomepageUSer() {
     back,
     email,
     ubication,
+    image,
   } = data;
 
   if (loading) return <h1>Cargando</h1>;
@@ -44,12 +45,14 @@ function HomepageUSer() {
         facebook={facebook}
         numberContact={numberContact}
         github={github}
+        image={image}
       />
       <About
         introduction={introduction}
         experience={experience}
         proyects={proyects}
         jobs={jobs}
+        image={image}
       />
       <Services
         desing={desing}
