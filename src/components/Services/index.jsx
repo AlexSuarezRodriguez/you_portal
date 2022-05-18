@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { VscPreview, VscServer, VscCode } from 'react-icons/vsc';
-
 import {
   ServiceContainer,
   ServiceWrapper,
@@ -10,7 +10,7 @@ import {
   IconCard,
 } from './Services.elements';
 
-function Services() {
+function Services({ desing, front, back }) {
   return (
     <ServiceContainer id="about">
       <ServiceWrapper>
@@ -30,9 +30,7 @@ function Services() {
             </p>
             <br />
             <span>
-              mediante logica de programacion y diferentes tecnologias he participado en
-              proyectos los cuales han gustado a los usuarios finales ya que es f acil de manejar
-              y sencillo de entender
+              {desing}
             </span>
           </AboutDetails>
           <AboutDetails>
@@ -47,8 +45,7 @@ function Services() {
             </p>
             <br />
             <span>
-              he participado en proyectos en los cuales he implementado React, Redux, tailwind y
-              como lenguaje de programacion javascript
+              {front}
             </span>
           </AboutDetails>
           <AboutDetails>
@@ -63,8 +60,7 @@ function Services() {
             </p>
             <br />
             <span>
-              he aplciado tecnoplogias como node.js, express, mongoose y
-              como base de datos he hecho uso de MongDB
+              {back}
             </span>
           </AboutDetails>
         </AboutAbility>
@@ -74,3 +70,15 @@ function Services() {
 }
 
 export default Services;
+
+Services.propTypes = {
+  desing: PropTypes.string,
+  front: PropTypes.string,
+  back: PropTypes.string,
+};
+
+Services.defaultProps = {
+  desing: '',
+  front: '',
+  back: '',
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { AiOutlineSend } from 'react-icons/ai';
 import {
   AboutContainer,
@@ -12,9 +12,8 @@ import {
   ButtonContact,
   AboutDetails,
 } from './About.elements';
-import perfil from '../../images/87741454.jpg';
 
-function About() {
+function About({ introduction, experience, proyects, jobs, image }) {
   return (
     <AboutContainer id="about">
       <AboutWrapper>
@@ -23,24 +22,22 @@ function About() {
           <p style={{ fontSize: '1.5rem' }}> mi introduccion</p>
         </AboutTitle>
         <AboutDescription>
-          <AboutImage src={perfil} alt="" />
+          <AboutImage src={image} alt="" />
           <AboutInformation>
-            <p style={{ display: 'flex', alignItems: 'center', color: '#ebc08b', fontSize: '1.5rem' }}>
-              mis habilidades tecnicas y blandas me han permitido crecer profesionalmente,
-              como persona soy alguien que busca estar en constante aprendizaje,
-              por lo cual me considero una persona capaza de afrontar nuevos retos
+            <p style={{ display: 'flex', alignItems: 'center', color: '#ebc08b', fontSize: '1.3rem' }}>
+              {introduction}
             </p>
             <AboutAbility>
               <AboutDetails>
-                <p>01</p>
+                <p>{experience}</p>
                 <span>años de experiencia</span>
               </AboutDetails>
               <AboutDetails>
-                <p>02</p>
+                <p>{proyects}</p>
                 <span>proyectos</span>
               </AboutDetails>
               <AboutDetails>
-                <p>0</p>
+                <p>{jobs}</p>
                 <span>compañias </span>
               </AboutDetails>
             </AboutAbility>
@@ -56,5 +53,20 @@ function About() {
     </AboutContainer>
   );
 }
-
 export default About;
+
+About.propTypes = {
+  introduction: PropTypes.string,
+  experience: PropTypes.string,
+  proyects: PropTypes.string,
+  jobs: PropTypes.string,
+  image: PropTypes.string,
+};
+
+About.defaultProps = {
+  introduction: '',
+  experience: '',
+  proyects: '',
+  jobs: '',
+  image: '',
+};

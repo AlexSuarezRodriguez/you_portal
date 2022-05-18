@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa';
 import { GoMarkGithub } from 'react-icons/go';
 import { AiOutlineSend } from 'react-icons/ai';
@@ -11,36 +12,33 @@ import {
   ImageInformation,
   ButtonContact,
 } from './Presentation.elements';
-import perfil from '../../images/87741454.jpg';
 
-function Presentation() {
+function Presentation({ name, description, facebook, numberContact, github, image }) {
   return (
     <HomeContainer id="home">
       <HomeWrapper>
         <ImageWrapper>
           <SocialInformation>
-            <a href="https://www.google.com/">
+            <a href={facebook}>
               <FaFacebookMessenger />
             </a>
-            <a href="https://www.google.com/">
+            <a href={`https://wa.me/${numberContact}`}>
               <FaWhatsapp />
             </a>
-            <a href="https://www.google.com/">
+            <a href={github}>
               <GoMarkGithub />
             </a>
           </SocialInformation>
-          <ImageInformation src={perfil} alt="" />
+          <ImageInformation src={image} alt="" />
         </ImageWrapper>
         <InformationWrapper>
           <p style={{ fontSize: '2.5rem' }}>
-            Hola soy Alexander Ruarez R
+            Hola soy
+            {' '}
+            {name}
           </p>
           <div style={{ fontSize: '1.2rem' }}>
-            <p>soy un desarrolador Full-stack:</p>
-            <p>
-              tengo conocimientos en desarrollo de aplicaciones web y movil,
-              me apasiona programar
-            </p>
+            <p>{description}</p>
           </div>
           <ButtonContact name="button" type="button">
             Contactame
@@ -53,3 +51,21 @@ function Presentation() {
 }
 
 export default Presentation;
+
+Presentation.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  facebook: PropTypes.string,
+  numberContact: PropTypes.string,
+  github: PropTypes.string,
+  image: PropTypes.string,
+};
+
+Presentation.defaultProps = {
+  name: '',
+  description: '',
+  facebook: '',
+  numberContact: '',
+  github: '',
+  image: PropTypes.string,
+};

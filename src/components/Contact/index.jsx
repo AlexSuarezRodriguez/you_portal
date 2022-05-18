@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { HiOutlineMail, HiLocationMarker } from 'react-icons/hi';
 import { FaFacebook, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import {
@@ -11,9 +11,10 @@ import {
   ContactEmail,
   ContactDescription,
   IconCard,
+  TextContact,
 } from './Contact.elements';
 
-function Contact() {
+function Contact({ email, ubication, facebook, numberContact }) {
   return (
     <ContactContainer id="about">
       <ContactWrapper>
@@ -26,49 +27,49 @@ function Contact() {
               <IconCard>
                 <HiOutlineMail />
               </IconCard>
-              <div>
+              <TextContact>
                 <p>Email</p>
-                <span>alex.suarez@hotmail.com</span>
+                <span>{email}</span>
                 <p>Enviar un mensaje</p>
-              </div>
+              </TextContact>
             </ContactDescription>
             <ContactDescription>
               <IconCard>
                 <FaFacebook />
               </IconCard>
-              <div>
+              <TextContact>
                 <p>Facebook</p>
-                <span>Alex Suarez Rodriguez</span>
+                <span>{facebook}</span>
                 <p>Enviar un mensaje</p>
-              </div>
+              </TextContact>
             </ContactDescription>
             <ContactDescription>
               <IconCard>
                 <FaWhatsapp />
               </IconCard>
-              <div>
+              <TextContact>
                 <p>Whatsapp</p>
-                <span>+57 3242587573</span>
+                <span>{numberContact}</span>
                 <p>Enviar un mensaje</p>
-              </div>
+              </TextContact>
             </ContactDescription>
             <ContactDescription>
               <IconCard>
                 <FaPhoneAlt />
               </IconCard>
-              <div>
+              <TextContact>
                 <p>llamar</p>
-                <span>+57 3242587573</span>
-              </div>
+                <span>{numberContact}</span>
+              </TextContact>
             </ContactDescription>
             <ContactDescription>
               <IconCard>
                 <HiLocationMarker />
               </IconCard>
-              <div>
+              <TextContact>
                 <p>Ubicacion</p>
-                <span>+57 3242587573</span>
-              </div>
+                <span>{ubication}</span>
+              </TextContact>
             </ContactDescription>
           </ContactInformation>
           <ContactEmail />
@@ -79,3 +80,17 @@ function Contact() {
 }
 
 export default Contact;
+
+Contact.propTypes = {
+  email: PropTypes.string,
+  ubication: PropTypes.string,
+  facebook: PropTypes.string,
+  numberContact: PropTypes.string,
+};
+
+Contact.defaultProps = {
+  email: '',
+  ubication: '',
+  facebook: '',
+  numberContact: '',
+};

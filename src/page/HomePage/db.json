@@ -1,0 +1,16 @@
+{
+  "name":"Alexander Suarez Rodriguez",
+  "description": "soy un desarrollador Full-Stack, tengo conocimeintos en desarrollo de aplicaciones web y movil, me apasiona programar",
+  "introduction":"mis habilidades tecnicas y blandas me han permitido crecer profesionalmente como persona soy alguien que busca estar en constante aprendizaje,pro lo cual me considero una persona capacitada para afrontar nuevos retos",
+  "experience": "01",
+  "proyects": "02",
+  "jobs": "01",
+  "desing":"mediante logica de programacion y diferentes tecnologias he participado en proyectos los cuales han gustado a los usuarios finales ya que es f acil de manejar y sencillo de entender",
+  "front":"he participado en proyectos en los cuales he implementado React, Redux, tailwind y como lenguaje de programacion javascript",
+  "back":"he aplicado tecnoplogias como node.js, express, mongoose y como base de datos he hecho uso de MongDB",
+  "email":"alex.suarez@hotmail.com",
+  "ubication":"Bogota D.C - Colombia",
+  "facebook":"https://es-la.facebook.com/",
+  "github":"https://github.com/",
+  "numberContact":"+573242587573"
+}

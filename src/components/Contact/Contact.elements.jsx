@@ -36,7 +36,7 @@ export const ContactTaget = styled.div`
   height:100% ;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap:2rem;
+  gap:1rem;
 `;
 
 export const ContactInformation = styled.div`
@@ -64,4 +64,7 @@ export const ContactDescription = styled.div`
   display:grid ;
   grid-template-columns: 1fr 5fr;
   align-items:center ;
+`;
+export const TextContact = styled.div`
+font-size:0.8rem ;
 `;
