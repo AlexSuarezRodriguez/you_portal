@@ -1,13 +1,8 @@
 import { collection, getDoc, getDocs, addDoc, setDoc, doc } from 'firebase/firestore';
-// import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { db } from './firebase';
 
-// const storage = getStorage(db);
-// import { useAuth } from './context/authContext';
-
 export async function getCollection(collectionName) {
-  // const { user } = useAuth();
   const col = collection(db, collectionName);
   const snapshot = await getDocs(col);
   // eslint-disable-next-line no-shadow
@@ -35,14 +30,6 @@ export async function getDocument(collectionName, id) {
   }
   return docSnap.data();
 }
-// export async function createUrlImage(e) {
-//   const imageLocal = e.target.files[0];
-//   console.log(imageLocal);
-//   const imageRef = ref(storage, `imagenes/${imageLocal.name}`);
-//   await uploadBytes(imageRef, imageLocal);
-//   const urlDescarga = await getDownloadURL(imageRef);
-//   console.log(urlDescarga);
-// }
 export async function createUrlImage(e) {
   const imageLocal = e.target.files[0];
   const storage = getStorage();

@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { useStepperContext } from '../../context/StepperContext';
 import { createUrlImage } from '../../create.collections';
 
@@ -14,7 +13,6 @@ export default function Account() {
       setUserData({ ...userData, image: element });
     });
   };
-  console.log(userData);
   return (
     <div className="flex flex-col ">
       <div className="mx-2 w-full flex-1">

@@ -52,25 +52,26 @@ function App() {
   };
 
   return (
-    <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-1/2">
-      {/* Stepper */}
-      <div className="horizontal container mt-5 ">
-        <Stepper steps={steps} currentStep={currentStep} />
+    <div className="bg-[#171c27] h-screen text-black flex">
+      <div className="mx-auto rounded-2xl bg-[#f4f6f7] pb-2 shadow-xl md:w-1/2">
+        {/* Stepper */}
+        <div className="horizontal container mt-5 ">
+          <Stepper steps={steps} currentStep={currentStep} />
 
-        <div className="my-10 p-10 ">
-          <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
+          <div className="my-10 p-10 ">
+            <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
+          </div>
         </div>
+
+        {/* navigation button */}
+        {currentStep !== steps.length && (
+          <StepperControl
+            handleClick={handleClick}
+            currentStep={currentStep}
+            steps={steps}
+          />
+        )}
       </div>
-
-      {/* navigation button */}
-      {currentStep !== steps.length && (
-        <StepperControl
-          handleClick={handleClick}
-          currentStep={currentStep}
-          steps={steps}
-        />
-      )}
-
     </div>
   );
 }
