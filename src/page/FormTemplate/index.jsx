@@ -18,9 +18,9 @@ function App() {
 
   const steps = [
     'Presentacion',
-    'Quien eres',
-    'Servicios',
     'Formacion Academica',
+    'Servicios',
+    'Quien eres',
     'Contacto',
     'Complete',
     'final',
@@ -32,11 +32,11 @@ function App() {
       case 1:
         return <PresentationUser />;
       case 2:
-        return <About />;
+        return <FormationAcademic />;
       case 3:
         return <Service />;
       case 4:
-        return <FormationAcademic />;
+        return <About />;
       case 5:
         return <Contact />;
       case 6:
