@@ -3,6 +3,7 @@ import Presentation from '../../components/Presentation';
 import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
+import Formation from '../../components/Formation';
 import { useAuth } from '../../context/authContext';
 import data from './db.json';
 import imageDefault from './images/87741454.jpg';
@@ -49,6 +50,7 @@ function Homepage() {
         front={front}
         back={back}
       />
+      <Formation />
       <Contact
         email={email}
         ubication={ubication}

@@ -11,6 +11,7 @@ import Service from '../../components/steps/Service';
 import Confirmation from '../../components/steps/Confirmation';
 import Contact from '../../components/steps/Contact';
 import Final from '../../components/steps/Final';
+import FormationAcademic from '../../components/steps/FormationAcademic';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,6 +20,7 @@ function App() {
     'Presentacion',
     'Quien eres',
     'Servicios',
+    'Formacion Academica',
     'Contacto',
     'Complete',
     'final',
@@ -34,10 +36,12 @@ function App() {
       case 3:
         return <Service />;
       case 4:
-        return <Contact />;
+        return <FormationAcademic />;
       case 5:
-        return <Confirmation />;
+        return <Contact />;
       case 6:
+        return <Confirmation />;
+      case 7:
         return <Final />;
       default:
     }
@@ -52,8 +56,8 @@ function App() {
   };
 
   return (
-    <div className="bg-[#171c27] h-screen text-black flex">
-      <div className="mx-auto rounded-2xl bg-[#f4f6f7] pb-2 shadow-xl md:w-1/2">
+    <div className="bg-[#171c27] h-auto text-black flex">
+      <div className="mx-auto rounded-2xl bg-[#f4f6f7] pb-2 shadow-xl md:w-1/2 h-auto">
         {/* Stepper */}
         <div className="horizontal container mt-5 ">
           <Stepper steps={steps} currentStep={currentStep} />
@@ -63,7 +67,6 @@ function App() {
           </div>
         </div>
 
-        {/* navigation button */}
         {currentStep !== steps.length && (
           <StepperControl
             handleClick={handleClick}
