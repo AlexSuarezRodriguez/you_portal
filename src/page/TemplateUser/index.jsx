@@ -30,7 +30,6 @@ function HomepageUSer() {
     image,
     formation,
   } = data;
-  console.log(formation);
   if (loading) return <h1>Cargando</h1>;
 
   useEffect(() => {

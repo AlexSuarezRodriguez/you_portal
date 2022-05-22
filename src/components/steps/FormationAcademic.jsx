@@ -13,6 +13,7 @@ function FormSchool({ onHandleSubmit }) {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    // eslint-disable-next-line no-alert
     alert('se a agregado una formacion academica');
     onHandleSubmit(school);
   };
@@ -59,10 +60,8 @@ export default function Account() {
 
   const handleSubmit = (school) => {
     const data = [...schools, school];
-    console.log('esto es data', data);
     setSchools(data);
   };
-  console.log('esto es userData', userData);
   useEffect(() => {
     setUserData({ ...userData, formation: schools });
   }, [schools]);
