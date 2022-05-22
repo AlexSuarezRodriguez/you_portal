@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Experience from '../Experience';
 import Education from '../Education';
 import {
@@ -43,3 +43,13 @@ function Formation({ formation, experienceJob }) {
 }
 
 export default Formation;
+
+Formation.propTypes = {
+  formation: PropTypes.arrayOf(Object),
+  experienceJob: PropTypes.arrayOf(Object),
+};
+
+Formation.defaultProps = {
+  formation: [],
+  experienceJob: [],
+};

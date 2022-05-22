@@ -28,7 +28,7 @@ function Homepage() {
     experienceJob,
   } = data;
   const { loading } = useAuth();
-  console.log(formation);
+
   if (loading) return <h1>Cargando</h1>;
   return (
     <div style={{ heigth: '100vh' }}>

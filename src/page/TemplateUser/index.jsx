@@ -4,6 +4,7 @@ import Presentation from '../../components/Presentation';
 import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
+import Formation from '../../components/Formation';
 import { useAuth } from '../../context/authContext';
 import { getDocument } from '../../create.collections';
 
@@ -27,8 +28,9 @@ function HomepageUSer() {
     email,
     ubication,
     image,
+    formation,
   } = data;
-
+  console.log(formation);
   if (loading) return <h1>Cargando</h1>;
 
   useEffect(() => {
@@ -58,6 +60,9 @@ function HomepageUSer() {
         desing={desing}
         front={front}
         back={back}
+      />
+      <Formation
+        formation={formation}
       />
       <Contact
         email={email}

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -8,7 +8,7 @@ import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function VerticalLinearStepper({ experienceJob }) {
+export default function Experience({ experienceJob }) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -81,3 +81,11 @@ export default function VerticalLinearStepper({ experienceJob }) {
     </div>
   );
 }
+
+Experience.propTypes = {
+  experienceJob: PropTypes.arrayOf(Object),
+};
+
+Experience.defaultProps = {
+  experienceJob: [],
+};
