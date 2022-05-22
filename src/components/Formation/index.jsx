@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
@@ -10,7 +11,7 @@ import {
   ContactTaget,
 } from './Formation.elements';
 
-function Formation() {
+function Formation({ formation, experienceJob }) {
   const [view, setView] = useState('Experience');
   return (
     <ContactContainer id="about">
@@ -33,7 +34,7 @@ function Formation() {
           </h3>
         </div>
         <ContactTaget>
-          {view === 'Experience' ? <Experience /> : <Education />}
+          {view === 'Experience' ? <Experience experienceJob={experienceJob} /> : <Education formation={formation} />}
 
         </ContactTaget>
       </ContactWrapper>

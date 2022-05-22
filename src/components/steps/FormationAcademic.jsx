@@ -13,6 +13,7 @@ function FormSchool({ onHandleSubmit }) {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    alert('se a agregado una formacion academica');
     onHandleSubmit(school);
   };
 
@@ -58,20 +59,52 @@ export default function Account() {
 
   const handleSubmit = (school) => {
     const data = [...schools, school];
-    console.log(data);
+    console.log('esto es data', data);
     setSchools(data);
   };
-
+  console.log('esto es userData', userData);
   useEffect(() => {
-    setUserData({ ...userData, formation: [schools] });
+    setUserData({ ...userData, formation: schools });
   }, [schools]);
   return (
     <div>
-      {/* Cada vez que le den click al boton agregar metes elc omponente */}
-      <FormSchool onHandleSubmit={handleSubmit} userData={userData} />
-
-      {/* sera que requiere un boton */}
-      {/* aqui no va el boton */}
+      <FormSchool onHandleSubmit={handleSubmit} />
     </div>
   );
 }
+
+// import React from "react";
+
+// const inputSchema = {
+//   label: "skills",
+//   Type: "input",
+//   placeholder: "dime tu skill",
+//   onChange: (e, key) => console.log("string from", key, e.target.value)
+// };
+
+// const initialSchema = [inputSchema];
+
+// const Form = () => {
+//   const [schema, setSchema] = React.useState(initialSchema);
+//   const handleAddMoreSkills = () => setSchema([...schema, inputSchema]);
+//   return (
+//     <>
+//       <form>
+//         {schema.map(({ label, Type, placeholder, onChange }, key) => {
+//           return (
+//             <div {...key}>
+//               <h2>{label}</h2>
+//               <Type
+//                 placeholder={placeholder}
+//                 onChange={(e) => onChange(e, key)}
+//               />
+//             </div>
+//           );
+//         })}
+//       </form>
+//       <button onClick={handleAddMoreSkills}>add more skills</button>
+//     </>
+//   );
+// };
+
+// export default Form;

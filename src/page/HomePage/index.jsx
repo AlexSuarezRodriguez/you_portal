@@ -24,9 +24,11 @@ function Homepage() {
     back,
     email,
     ubication,
+    formation,
+    experienceJob,
   } = data;
   const { loading } = useAuth();
-
+  console.log(formation);
   if (loading) return <h1>Cargando</h1>;
   return (
     <div style={{ heigth: '100vh' }}>
@@ -50,7 +52,10 @@ function Homepage() {
         front={front}
         back={back}
       />
-      <Formation />
+      <Formation
+        formation={formation}
+        experienceJob={experienceJob}
+      />
       <Contact
         email={email}
         ubication={ubication}

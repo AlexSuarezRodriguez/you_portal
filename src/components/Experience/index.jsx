@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -7,27 +8,7 @@ import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function VerticalLinearStepper() {
-  const steps = [
-    {
-      label: 'SENA',
-      description: `For each ad campaign that you create, you can control how much
-                you're willing to spend on clicks and conversions, which networks
-                and geographical locations you want your ads to show on, and more.`,
-    },
-    {
-      label: 'UNIVERSIDAD NACIONAL',
-      description:
-        'An ad group contains one or more ads which target a shared set of keywords.',
-    },
-    {
-      label: 'TECNICO',
-      description: `Try out different ad text to see what brings in the most customers,
-                and learn how to enhance your ads using features like ad extensions.
-                If you run into any problems with your ads, find out how to tell if
-                they're running and how to resolve approval issues.`,
-    },
-  ];
+export default function VerticalLinearStepper({ experienceJob }) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -38,15 +19,11 @@ export default function VerticalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   return (
     <div style={{ margin: '0 auto' }}>
       <Box sx={{ maxWidth: 600 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((step, index) => (
+          {experienceJob.map((step, index) => (
             <Step key={step.label}>
               <StepLabel
                 optional={
@@ -79,12 +56,8 @@ export default function VerticalLinearStepper() {
                             onClick={handleNext}
                             sx={{ mt: 1, mr: 1 }}
                           >
-                            {index === steps.length - 1
-                              ? (
-                                <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                                  Reset
-                                </Button>
-                              )
+                            {index === experienceJob.length - 1
+                              ? null
                               : 'Continue'}
                           </Button>
                           <Button
