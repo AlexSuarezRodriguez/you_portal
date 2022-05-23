@@ -48,7 +48,15 @@ function FormSchool({ onHandleSubmit }) {
           />
         </div>
       </div>
-      <button type="submit">agregar</button>
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="cursor-pointer rounded-lg bg-green-500 py-0.5 px-2 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+        >
+          GUARDAR
+        </button>
+
+      </div>
     </form>
 
   );
@@ -57,7 +65,8 @@ function FormSchool({ onHandleSubmit }) {
 export default function Account() {
   const { userData, setUserData } = useStepperContext();
   const [schools, setSchools] = useState([]);
-
+  const [formulario, setFormulario] = useState(1);
+  const characters = Array.from({ length: formulario }, (_, i) => (i));
   const handleSubmit = (school) => {
     const data = [...schools, school];
     setSchools(data);
@@ -67,7 +76,29 @@ export default function Account() {
   }, [schools]);
   return (
     <div>
-      <FormSchool onHandleSubmit={handleSubmit} />
+      {
+        characters.map(() => (
+          <FormSchool onHandleSubmit={handleSubmit} />
+
+        ))
+      }
+      <div className="flex items-center justify-between">
+        <button
+          type="button"
+          onClick={() => setFormulario(formulario + 1)}
+          className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
+        >
+          Añadir Educacion
+        </button>
+        {/* <button
+          type="button"
+          onClick={() => setFormulario(formulario - 1)}
+          className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold
+          py-2 px-4 rounded focus:outline focus:shadow-outline"
+        >
+          Borrar campo
+        </button> */}
+      </div>
     </div>
   );
 }

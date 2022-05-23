@@ -24,10 +24,11 @@ export default function Final() {
         <div>
           <div className="flex flex-col items-start">
             {
-            Object.keys(userData).map((element) => (element === 'formation'
+            Object.keys(userData).map((element, key) => (element === 'formation'
               ? formation(userData[element])
               : (
-                <p key={element}>
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                <p {...key}>
                   <strong>{element}</strong>
                   :
                   {' '}

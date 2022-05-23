@@ -6,7 +6,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import { VscBracketDot } from 'react-icons/vsc';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../../context/authContext';
-import { HOME_ROUTE, LOGIN, FORM_TEMPLATE } from '../../constants/Routes';
+import { HOME_ROUTE, LOGIN, FORM_TEMPLATE, REGISTER } from '../../constants/Routes';
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -75,9 +75,14 @@ function Navbar() {
               </>
             )
               : (
-                <MenuItem onClick={() => changeClick()}>
-                  <MenuItemLink><NavLink to={LOGIN}>Iniciar Sesion</NavLink></MenuItemLink>
-                </MenuItem>
+                <>
+                  <MenuItem onClick={() => changeClick()}>
+                    <MenuItemLink><NavLink to={LOGIN}>Iniciar Sesion</NavLink></MenuItemLink>
+                  </MenuItem>
+                  <MenuItem onClick={() => changeClick()}>
+                    <MenuItemLink><NavLink to={REGISTER}>Registrarse</NavLink></MenuItemLink>
+                  </MenuItem>
+                </>
               )}
           </Menu>
         </NavbarWrapper>

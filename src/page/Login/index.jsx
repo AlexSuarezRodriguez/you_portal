@@ -1,7 +1,27 @@
-import React from 'react';
-import { Formik } from 'formik';
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { FcGoogle } from 'react-icons/fc';
+import { useAuth } from '../../context/authContext';
 
 function Login() {
+  const navigate = useNavigate();
+  const { loginWithGoogle, user, login } = useAuth();
+  const handleGoogleSignIn = async () => {
+    try {
+      await loginWithGoogle();
+    } catch (error) {
+      alert('error.message');
+    }
+  };
+  useEffect(() => {
+    if (user && user.uid) {
+      navigate(`/youPortal/${user.uid}`);
+    }
+  }, [user]);
+
   return (
     <div className="bg-[#171c27] h-screen text-black flex">
       <div className="w-full max-w-xl m-auto">
@@ -29,49 +49,43 @@ function Login() {
                 }
                 return errors;
               }}
-              onSubmit={(values, { resetForm }) => {
-                resetForm();
-                console.log(values);
-                console.log('formualrio enviado');
+              onSubmit={async (values) => {
+                await login(values.email, values.password);
               }}
             >
-              {({ values, handleSubmit, handleChange, handleBlur, errors, touched }) => (
+              {({ errors }) => (
 
-                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+                <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                   <div className="mb-4">
                     <label htmlFor="email" className="grid text-gray-700 text-sm font-bold mb-2">
                       Email
-                      <input
+                      <Field
                         type="email"
                         name="email"
                         id="email"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
                         placeholder="youremail@company.com"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
                     </label>
-                    {touched.email && errors.email && <div className="text-red-700">{errors.email}</div>}
+                    <ErrorMessage name="password" component={() => (<div className="text-red-700">{errors.email}</div>)} />
                   </div>
                   <div className="mb-4">
                     <label htmlFor="password" className="grid text-gray-700 text-sm font-bold mb-2">
                       password
-                      <input
+                      <Field
                         type="password"
                         name="password"
                         id="password"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.password}
                         placeholder="*****"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       />
                     </label>
-                    {touched.password && errors.password && <div className="text-red-700">{errors.password}</div>}
+                    <ErrorMessage name="password" component={() => (<div className="text-red-700">{errors.password}</div>)} />
+
                   </div>
                   <p className="my-4 text-sm flex justify-between px-3">
                     ¿Aun no tienes una cuenta?
+                    <Link to="/register" className="hover:text-blue-800 font-bold">Registrate</Link>
                   </p>
                   <div className="flex items-center justify-between">
                     <button
@@ -80,10 +94,26 @@ function Login() {
                     >
                       Iniciar Sesion
                     </button>
+                    <Link
+                      to="/forgorPassword"
+                      className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                    >
+                      Restablecer contraseña
+                    </Link>
                   </div>
-                </form>
+                </Form>
               )}
             </Formik>
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="flex items-center justify-center bg-slate-50 hover:bg-slate-200 text-black shadow-md rounded border-2 border-gray-300 py-3 px-4 w-full"
+            >
+              <div className="px-6 text-2xl ">
+                <FcGoogle />
+              </div>
+              Iniciar con Google
+            </button>
           </div>
         </div>
       </div>

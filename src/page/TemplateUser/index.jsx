@@ -32,8 +32,8 @@ function HomepageUSer() {
   } = data;
   if (loading) return <h1>Cargando</h1>;
 
-  useEffect(() => {
-    getDocument('informationUser', params.idUser).then((element) => {
+  useEffect(async () => {
+    await getDocument('informationUser', params.idUser).then((element) => {
       setData(element);
     });
   }, []);

@@ -19,7 +19,7 @@ function Register() {
     setMenError('');
     try {
       await signUp(user.email, user.password);
-      navigate('/');
+      navigate('/formTemplate');
     } catch (error) {
       setMenError(error.message);
     }
