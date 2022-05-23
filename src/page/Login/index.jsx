@@ -13,6 +13,7 @@ function Login() {
     try {
       await loginWithGoogle();
     } catch (error) {
+      // eslint-disable-next-line no-alert
       alert('error.message');
     }
   };
