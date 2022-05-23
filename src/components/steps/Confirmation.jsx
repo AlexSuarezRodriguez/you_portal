@@ -2,7 +2,6 @@ import { useStepperContext } from '../../context/StepperContext';
 
 export default function Final() {
   const { userData } = useStepperContext();
-  console.log('userData', userData);
   function formation(objerDormation) {
     // const arrayFormation= object.keys()
     return objerDormation.map((element) => (
