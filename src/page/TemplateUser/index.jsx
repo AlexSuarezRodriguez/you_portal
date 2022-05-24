@@ -29,6 +29,7 @@ function HomepageUSer() {
     ubication,
     image,
     formation,
+    experienceJob,
   } = data;
   if (loading) return <h1>Cargando</h1>;
 
@@ -62,6 +63,7 @@ function HomepageUSer() {
       />
       <Formation
         formation={formation}
+        experienceJob={experienceJob}
       />
       <Contact
         email={email}

@@ -6,13 +6,13 @@ export default function Final() {
     // const arrayFormation= object.keys()
     return objerDormation.map((element) => (
       <>
-        {Object.keys(element).map((infAcadenmic, key) => (
+        {Object.keys(element).map((dataKey, key) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
           <p {...key}>
-            <strong>{infAcadenmic}</strong>
+            <strong>{dataKey}</strong>
             :
             {' '}
-            {(element[infAcadenmic])}
+            {(element[dataKey])}
           </p>
         ))}
       </>
@@ -24,7 +24,7 @@ export default function Final() {
         <div>
           <div className="flex flex-col items-start">
             {
-            Object.keys(userData).map((element, key) => (element === 'formation'
+            Object.keys(userData).map((element, key) => ((element === 'formation' || element === 'experienceJob')
               ? formation(userData[element])
               : (
                 // eslint-disable-next-line react/jsx-props-no-spreading

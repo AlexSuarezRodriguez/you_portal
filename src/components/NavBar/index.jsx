@@ -71,12 +71,9 @@ function Navbar() {
 
             {user ? (
               <>
-                {data
-                    && (
-                    <MenuItem onClick={() => changeNav()}>
-                      <MenuItemLink><NavLink to={FORM_TEMPLATE}>inicia</NavLink></MenuItemLink>
-                    </MenuItem>
-                    )}
+                <MenuItem onClick={() => changeNav()}>
+                  <MenuItemLink><NavLink to={FORM_TEMPLATE}>inicia</NavLink></MenuItemLink>
+                </MenuItem>
                 <MenuItem onClick={() => changeClick()}>
                   <MenuItemLink><NavLink to={FORM_TEMPLATE}>formulario</NavLink></MenuItemLink>
                 </MenuItem>

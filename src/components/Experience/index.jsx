@@ -24,7 +24,7 @@ export default function Experience({ experienceJob }) {
       <Box sx={{ maxWidth: 600 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {experienceJob.map((step, index) => (
-            <Step key={step.label}>
+            <Step key={step.business}>
               <StepLabel
                 optional={
                   index === 2 ? (
@@ -32,14 +32,14 @@ export default function Experience({ experienceJob }) {
                   ) : null
                 }
               >
-                <p style={{ color: 'white' }}>{step.label}</p>
+                <p style={{ color: 'white' }}>{step.business}</p>
               </StepLabel>
               <StepContent>
-                <Typography><p style={{ color: 'white' }}>{step.description}</p></Typography>
+                <Typography><p style={{ color: 'white' }}>{step.descriptionJob}</p></Typography>
                 <Box sx={{ mb: 2 }}>
                   <div>
                     {
-                    activeStep === 2
+                    activeStep === experienceJob.length - 1
                       ? (
                         <Button
                           disabled={index === 0}

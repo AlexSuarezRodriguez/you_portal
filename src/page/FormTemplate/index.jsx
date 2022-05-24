@@ -12,6 +12,7 @@ import Confirmation from '../../components/steps/Confirmation';
 import Contact from '../../components/steps/Contact';
 import Final from '../../components/steps/Final';
 import FormationAcademic from '../../components/steps/FormationAcademic';
+import ExperienceWork from '../../components/steps/Jobs';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -21,6 +22,7 @@ function App() {
     'Quien eres',
     'Servicios',
     'Formacion Academica',
+    'Experiencia Laboral',
     'Contacto',
     'Complete',
     'final',
@@ -38,10 +40,12 @@ function App() {
       case 4:
         return <FormationAcademic />;
       case 5:
-        return <Contact />;
+        return <ExperienceWork />;
       case 6:
-        return <Confirmation />;
+        return <Contact />;
       case 7:
+        return <Confirmation />;
+      case 8:
         return <Final />;
       default:
     }

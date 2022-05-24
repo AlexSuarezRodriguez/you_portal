@@ -3,11 +3,21 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { FcGoogle } from 'react-icons/fc';
 import { useAuth } from '../../context/authContext';
 
 function Login() {
   const navigate = useNavigate();
-  const { signUp } = useAuth();
+  const { signUp, loginWithGoogle } = useAuth();
+  const handleGoogleSignIn = async () => {
+    try {
+      await loginWithGoogle();
+      navigate('/formTemplate');
+    } catch (error) {
+      // eslint-disable-next-line no-alert
+      alert('error.message');
+    }
+  };
 
   return (
     <div className="bg-[#171c27] h-screen text-black flex">
@@ -38,7 +48,7 @@ function Login() {
               }}
               onSubmit={async (values) => {
                 await signUp(values.email, values.password);
-                navigate('/');
+                navigate('/formTemplate');
               }}
             >
               {({ errors }) => (
@@ -86,6 +96,16 @@ function Login() {
                 </Form>
               )}
             </Formik>
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className="flex items-center justify-center bg-slate-50 hover:bg-slate-200 text-black shadow-md rounded border-2 border-gray-300 py-3 px-4 w-full"
+            >
+              <div className="px-6 text-2xl ">
+                <FcGoogle />
+              </div>
+              Iniciar con Google
+            </button>
           </div>
         </div>
       </div>
