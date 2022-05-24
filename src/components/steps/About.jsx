@@ -19,6 +19,7 @@ export default function Details() {
             value={userData.introduction || ''}
             name="introduction"
             placeholder="¿Quien eres?"
+            id="introduction"
             type="text"
             maxLength="250"
             className="w-full h-24 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"
@@ -34,6 +35,7 @@ export default function Details() {
             onChange={handleChange}
             value={userData.experience || ''}
             name="experience"
+            id="experience"
             placeholder="¿Años de experiencia?"
             type="number"
             className="w-full h-6 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"
@@ -49,6 +51,7 @@ export default function Details() {
             onChange={handleChange}
             value={userData.proyects || ''}
             name="proyects"
+            id="proyects"
             placeholder="Cantidad de proyectos realizados o participado"
             type="number"
             className="w-full h-6 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"
@@ -64,6 +67,7 @@ export default function Details() {
             onChange={handleChange}
             value={userData.jobs || ''}
             name="jobs"
+            id="jobs"
             placeholder="cantidad de empresas donde has participado"
             type="number"
             className="w-full h-6 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"

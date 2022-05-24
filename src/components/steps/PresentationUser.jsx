@@ -24,6 +24,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.name || ''}
             name="name"
+            id="name"
             placeholder="Nombre Completo"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
           />
@@ -40,6 +41,7 @@ export default function Account() {
             name="description"
             placeholder="como te describes"
             type="text"
+            id="description"
             maxLength="250"
             className="w-full h-24 appearance-none p-1 px-2 text-gray-800 outline-none flex  wrap"
           />

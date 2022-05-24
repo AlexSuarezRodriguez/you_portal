@@ -26,6 +26,7 @@ export default function StepperControl({ handleClick, currentStep }) {
       </button>
 
       <button
+        data-cy="button-sendInformation"
         type="button"
         onClick={handleSubmitInformation}
         className="cursor-pointer rounded-lg bg-green-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"

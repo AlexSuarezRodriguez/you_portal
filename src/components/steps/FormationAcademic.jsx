@@ -28,6 +28,7 @@ function FormSchool({ onHandleSubmit }) {
           <input
             onChange={handleChange}
             name="institute"
+            id="institute"
             placeholder="Nombre Completo"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
           />
@@ -41,6 +42,7 @@ function FormSchool({ onHandleSubmit }) {
           <textarea
             onChange={handleChange}
             name="achievements"
+            id="achievements"
             placeholder="como te describes"
             type="text"
             maxLength="250"
@@ -50,6 +52,7 @@ function FormSchool({ onHandleSubmit }) {
       </div>
       <div className="flex justify-end">
         <button
+          data-cy="button-saveAcademic"
           type="submit"
           className="cursor-pointer rounded-lg bg-green-500 py-0.5 px-2 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
         >
@@ -84,6 +87,7 @@ export default function Account() {
       }
       <div className="flex items-center justify-between">
         <button
+          data-cy="button-addEducation"
           type="button"
           onClick={() => setFormulario(formulario + 1)}
           className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
