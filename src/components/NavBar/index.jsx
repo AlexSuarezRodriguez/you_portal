@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
 import { VscBracketDot } from 'react-icons/vsc';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../../context/authContext';
-import { HOME_ROUTE, LOGIN, FORM_TEMPLATE } from '../../constants/Routes';
+import { HOME_ROUTE, LOGIN, FORM_TEMPLATE, REGISTER } from '../../constants/Routes';
 import {
   NavbarContainer,
   NavbarWrapper,
@@ -16,10 +16,13 @@ import {
   MenuItem,
   IconLogoMobile,
 } from './Navbar.elements';
+import { getDocument } from '../../create.collections';
 
 function Navbar() {
   const navigate = useNavigate();
   const [click, setClick] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [data, setData] = useState();
   const { user, logOut } = useAuth();
   const handleLogout = async () => {
     await logOut();
@@ -30,6 +33,11 @@ function Navbar() {
   const changeNav = () => {
     navigate(`/youPortal/${user.uid}`);
   };
+  useEffect(async () => {
+    await getDocument('informationUser', user.uid).then((element) => {
+      setData(element);
+    });
+  }, [user]);
   return (
     <>
       <NavbarContainer>
@@ -75,9 +83,14 @@ function Navbar() {
               </>
             )
               : (
-                <MenuItem onClick={() => changeClick()}>
-                  <MenuItemLink><NavLink to={LOGIN}>Iniciar Sesion</NavLink></MenuItemLink>
-                </MenuItem>
+                <>
+                  <MenuItem onClick={() => changeClick()}>
+                    <MenuItemLink><NavLink to={LOGIN}>Iniciar Sesion</NavLink></MenuItemLink>
+                  </MenuItem>
+                  <MenuItem onClick={() => changeClick()}>
+                    <MenuItemLink><NavLink to={REGISTER}>Registrarse</NavLink></MenuItemLink>
+                  </MenuItem>
+                </>
               )}
           </Menu>
         </NavbarWrapper>

@@ -39,7 +39,7 @@ export default function Education({ formation }) {
                 <Box sx={{ mb: 2 }}>
                   <div>
                     {
-                    activeStep === 2
+                    activeStep === formation.length - 1
                       ? (
                         <Button
                           disabled={index === 0}

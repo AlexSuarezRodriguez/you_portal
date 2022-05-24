@@ -67,5 +67,5 @@ Presentation.defaultProps = {
   facebook: '',
   numberContact: '',
   github: '',
-  image: PropTypes.string,
+  image: '',
 };

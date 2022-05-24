@@ -29,11 +29,12 @@ function HomepageUSer() {
     ubication,
     image,
     formation,
+    experienceJob,
   } = data;
   if (loading) return <h1>Cargando</h1>;
 
-  useEffect(() => {
-    getDocument('informationUser', params.idUser).then((element) => {
+  useEffect(async () => {
+    await getDocument('informationUser', params.idUser).then((element) => {
       setData(element);
     });
   }, []);
@@ -62,6 +63,7 @@ function HomepageUSer() {
       />
       <Formation
         formation={formation}
+        experienceJob={experienceJob}
       />
       <Contact
         email={email}
