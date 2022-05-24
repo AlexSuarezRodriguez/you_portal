@@ -53,7 +53,7 @@ export const ContactEmail = styled.div`
   color:#ebc08b;
   border: 1px solid white;
   border-radius:0.5rem ;
-  padding: 1rem ;
+  padding: 0.5rem ;
   background:rgba(0,0,0,0.25) ;
   text-align: justify;
 `;

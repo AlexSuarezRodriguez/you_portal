@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { HiOutlineMail, HiLocationMarker } from 'react-icons/hi';
 import { FaFacebook, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
@@ -8,13 +8,24 @@ import {
   ContactTitle,
   ContactTaget,
   ContactInformation,
-  ContactEmail,
   ContactDescription,
   IconCard,
   TextContact,
 } from './Contact.elements';
 
 function Contact({ email, ubication, facebook, numberContact }) {
+  const [form, setForm] = useState({});
+  const handleChange = (event) => {
+    const { value, name } = event.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('dentro de poco seras contactado');
+  };
   return (
     <ContactContainer id="about">
       <ContactWrapper>
@@ -72,7 +83,67 @@ function Contact({ email, ubication, facebook, numberContact }) {
               </TextContact>
             </ContactDescription>
           </ContactInformation>
-          <ContactEmail />
+          <form onSubmit={handleSubmit} className="bg-[#171c27] shadow-md rounded px-2 py-2 mb-4">
+            <div className="flex items-center justify-between">
+              <div className="mb-4 pr-1">
+                <label htmlFor="email" className="grid text-neutral-50 text-sm font-bold mb-2">
+                  Nombre
+                  <input
+                    type="text"
+                    name="nameClient"
+                    placeholder="ingrese su nombre"
+                    onChange={handleChange}
+                    className="bg-[#171c27] shadow appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-offset-2 focus:shadow-outline"
+                  />
+                </label>
+              </div>
+              <div className="mb-4 pl-1">
+                <label htmlFor="email" className="grid text-neutral-50 text-sm font-bold mb-2">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="youremail@company.com"
+                    onChange={handleChange}
+                    className="bg-[#171c27] shadow appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-offset-2 focus:shadow-outline"
+                  />
+                </label>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="grid text-neutral-50 text-sm font-bold mb-2">
+                titulo
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  onChange={handleChange}
+                  className="bg-[#171c27] shadow appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-offset-2 focus:shadow-outline"
+                />
+              </label>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="grid text-neutral-50 text-sm font-bold mb-2">
+                Mensaje
+                <textarea
+                  onChange={handleChange}
+                  name="desing"
+                  id="desing"
+                  type="text"
+                  maxLength="250"
+                  className=" bg-[#171c27] w-full h-40 shadow appearance-none border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-offset-2 focus:shadow-outline "
+                />
+              </label>
+            </div>
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
+              >
+                Enviar mensaje
+              </button>
+            </div>
+          </form>
         </ContactTaget>
       </ContactWrapper>
     </ContactContainer>
