@@ -24,6 +24,7 @@ function Contact({ email, ubication, facebook, numberContact }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    // eslint-disable-next-line no-alert
     alert('dentro de poco seras contactado');
   };
   return (
