@@ -11,6 +11,8 @@ describe('you portal register', () => {
     const randomDesing = faker.lorem.paragraph();
     const randomFront = faker.lorem.paragraph();
     const randomBack = faker.lorem.paragraph();
+    const avatar = ['index.jpg', 'avatar2.jpg', 'avatar3.jpg', 'avatar4.jpg', 'avatar5.jpg', 'avatar6.jpg'];
+    const x = Math.floor(Math.random() * 3);
     cy.visit('/');
     cy.get('[data-cy=\'register\']').click();
     cy.url().should('include', '/register');
@@ -23,7 +25,7 @@ describe('you portal register', () => {
     cy.url().should('include', '/formTemplate');
     cy.get('#name').clear().type(randomName);
     cy.get('#description').clear().type(randomDescription);
-    cy.get('#file').attachFile('index.jpg');
+    cy.get('#file').attachFile(avatar[x]);
     cy.get('[data-cy="button-next"]').click();
     cy.get('#introduction').clear().type(randomIntroduction);
     cy.get('#experience').clear().type(Math.floor(Math.random() * 10));
