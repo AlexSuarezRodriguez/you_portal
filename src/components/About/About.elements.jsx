@@ -59,7 +59,6 @@ export const AboutAbility = styled.div`
 `;
 export const ButtonContact = styled.button`
     background-color: #4CAF50; /* Green */
-    border: none;
     color: white;
     padding: 1rem 12px;
     text-align: center;

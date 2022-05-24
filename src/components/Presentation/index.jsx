@@ -40,10 +40,12 @@ function Presentation({ name, description, facebook, numberContact, github, imag
           <div style={{ fontSize: '1.2rem' }}>
             <p>{description}</p>
           </div>
-          <ButtonContact name="button" type="button">
-            Contactame
-            <AiOutlineSend />
-          </ButtonContact>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <ButtonContact name="button" type="button">
+              Contactame
+              <AiOutlineSend />
+            </ButtonContact>
+          </div>
         </InformationWrapper>
       </HomeWrapper>
     </HomeContainer>
