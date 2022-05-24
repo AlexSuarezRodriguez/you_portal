@@ -18,6 +18,7 @@ export default function Payment() {
             onChange={handleChange}
             value={userData.desing || ''}
             name="desing"
+            id="desing"
             placeholder="¿ Que has realizado de ui/ux desing"
             type="text"
             maxLength="250"
@@ -34,6 +35,7 @@ export default function Payment() {
             onChange={handleChange}
             value={userData.front || ''}
             name="front"
+            id="front"
             placeholder="¿ Que tecnologias has implementado en el front-end"
             type="text"
             maxLength="250"
@@ -50,6 +52,7 @@ export default function Payment() {
             onChange={handleChange}
             value={userData.back || ''}
             name="back"
+            id="back"
             placeholder="¿ Que tecnologias has implementado en el back-end"
             type="text"
             maxLength="250"

@@ -19,6 +19,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.email || ''}
             name="email"
+            id="email"
             type="email"
             placeholder="ingrese su correo electronico"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
@@ -34,6 +35,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.ubication || ''}
             name="ubication"
+            id="ubication"
             type="text"
             placeholder="ingresa tu pais y ciudad de residencia"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
@@ -49,6 +51,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.facebook || ''}
             name="facebook"
+            id="facebook"
             type="url"
             placeholder="ingresa el link de contacto para messenger meta"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
@@ -64,6 +67,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.github || ''}
             name="github"
+            id="github"
             type="url"
             placeholder="ingresa el link de tu Github"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
@@ -79,6 +83,7 @@ export default function Account() {
             onChange={handleChange}
             value={userData.numerContact || ''}
             name="numerContact"
+            id="numberContact"
             type="url"
             placeholder="ingresa el link de tu Github"
             className="w-full appearance-none p-1 px-2 text-gray-800 outline-none"
