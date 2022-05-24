@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Presentation from '../../components/Presentation';
 import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
 import Formation from '../../components/Formation';
 import { useAuth } from '../../context/authContext';
-import data from './db.json';
-import imageDefault from './images/87741454.jpg';
+import { getDocument } from '../../create.collections';
 
-function Homepage() {
+function HomepageUSer() {
+  const { loading } = useAuth();
+  const params = useParams();
+  const [data, setData] = useState([]);
   const {
     name,
     description,
@@ -24,12 +27,18 @@ function Homepage() {
     back,
     email,
     ubication,
+    image,
     formation,
     experienceJob,
   } = data;
-  const { loading } = useAuth();
-
   if (loading) return <h1>Cargando</h1>;
+
+  useEffect(async () => {
+    await getDocument('informationUser', params.idUser).then((element) => {
+      setData(element);
+    });
+  }, []);
+
   return (
     <div style={{ heigth: '100vh' }}>
       <Presentation
@@ -38,14 +47,14 @@ function Homepage() {
         facebook={facebook}
         numberContact={numberContact}
         github={github}
-        image={imageDefault}
+        image={image}
       />
       <About
         introduction={introduction}
         experience={experience}
         proyects={proyects}
         jobs={jobs}
-        image={imageDefault}
+        image={image}
       />
       <Services
         desing={desing}
@@ -66,4 +75,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomepageUSer;
