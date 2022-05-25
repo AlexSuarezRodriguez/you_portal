@@ -6,6 +6,7 @@ import Services from '../../components/Services';
 import Contact from '../../components/Contact';
 import Formation from '../../components/Formation';
 import { getDocument } from '../../create.collections';
+import Loading from '../../components/Loading';
 
 function HomepageUSer() {
   const params = useParams();
@@ -44,37 +45,46 @@ function HomepageUSer() {
   }, []);
 
   return (
+
     <div style={{ heigth: '100vh' }}>
-      <Presentation
-        name={name}
-        description={description}
-        facebook={facebook}
-        numberContact={numberContact}
-        github={github}
-        image={image}
-      />
-      <About
-        introduction={introduction}
-        experience={experience}
-        proyects={proyects}
-        jobs={jobs}
-        image={image}
-      />
-      <Services
-        desing={desing}
-        front={front}
-        back={back}
-      />
-      <Formation
-        formation={formation}
-        experienceJob={experienceJob}
-      />
-      <Contact
-        email={email}
-        ubication={ubication}
-        facebook={facebook}
-        numberContact={numberContact}
-      />
+      {Object.keys(data).length === 0
+        ? <Loading />
+        : (
+          <>
+            <Presentation
+              name={name}
+              description={description}
+              facebook={facebook}
+              numberContact={numberContact}
+              github={github}
+              image={image}
+            />
+            <About
+              introduction={introduction}
+              experience={experience}
+              proyects={proyects}
+              jobs={jobs}
+              image={image}
+            />
+            <Services
+              desing={desing}
+              front={front}
+              back={back}
+            />
+            <Formation
+              formation={formation}
+              experienceJob={experienceJob}
+            />
+            <Contact
+              email={email}
+              ubication={ubication}
+              facebook={facebook}
+              numberContact={numberContact}
+            />
+
+          </>
+        )}
+
     </div>
   );
 }
