@@ -1,6 +1,6 @@
 import { collection, getDoc, getDocs, addDoc, setDoc, doc } from 'firebase/firestore';
-import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
-import { db } from './firebase';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { db, storage } from './firebase';
 
 export async function getCollection(collectionName) {
   const col = collection(db, collectionName);
@@ -34,11 +34,9 @@ export async function getDocument(collectionName, id) {
     return alert(error);
   }
 }
-export async function createUrlImage(e) {
-  const imageLocal = e.target.files[0];
-  const storage = getStorage();
-  const storageRef = ref(storage, `images/${imageLocal}`);
-  await uploadBytes(storageRef, imageLocal);
-  const urlDescarga = await getDownloadURL(storageRef);
-  return urlDescarga;
+export async function createUrlImage(localfile, idUser) {
+  const fileRef = ref(storage, `images/${idUser}_${localfile.name}`);
+  await uploadBytes(fileRef, localfile);
+  const fileUrl = await getDownloadURL(fileRef);
+  return fileUrl;
 }
