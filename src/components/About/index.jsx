@@ -24,7 +24,7 @@ function About({ introduction, experience, proyects, jobs, image }) {
         <AboutDescription>
           <AboutImage src={image} alt="" />
           <AboutInformation>
-            <p style={{ display: 'flex', alignItems: 'center', color: '#ebc08b', fontSize: '1.3rem' }}>
+            <p style={{ display: 'flex', alignItems: 'center', color: '#ebc08b', fontSize: '1.3rem', textAlign: 'justify' }}>
               {introduction}
             </p>
             <AboutAbility>
