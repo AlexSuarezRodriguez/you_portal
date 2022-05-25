@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.section`
   width: 100%;
-  height: 600px;
+  height: 650px;
   background-color: #171c27;
 `;
 export const HomeWrapper = styled.div`

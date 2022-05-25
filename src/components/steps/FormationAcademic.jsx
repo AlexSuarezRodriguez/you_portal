@@ -92,7 +92,7 @@ export default function Account() {
           onClick={() => setFormulario(formulario + 1)}
           className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline focus:shadow-outline"
         >
-          Añadir Educacion
+          Añadir institucion
         </button>
         {/* <button
           type="button"
