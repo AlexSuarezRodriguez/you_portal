@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.section`
   width: 100%;
-  height: 600px;
-  
+  height: 650px;
+  background-color: #171c27;
 `;
 export const HomeWrapper = styled.div`
   padding: 20px ;
@@ -14,20 +14,21 @@ export const HomeWrapper = styled.div`
   max-width: 960px;
   height: 90%;
   align-items: center;
-  background-color: #171c27;
-  border: 2px solid white;
-  display: flex;
+  background:rgba(0,0,0,0.25) ;
+  border: 0.5px solid white;
+  display: flex; 
+  border-radius:12px ;
 `;
 export const ImageWrapper = styled.div`
   width: 55%;
   height: 100%;
   align-items: center;
-  background-color: #171c27;
+  
   grid-template-columns: 1fr 4fr;
   display: grid;
 `;
 export const SocialInformation = styled.div`
-  background-color: #171c27;
+  
   width: 100%;
   height: 100%;
   display: grid ;
@@ -51,9 +52,10 @@ export const InformationWrapper = styled.div`
   height: 100%;
   align-items: center;
   background-color: #171c27;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   padding-left:2rem ;
   color: #ebc08b;
+  border-radius:12px ;
   `;
 export const ButtonContact = styled.button`
     background-color: #4CAF50; /* Green */

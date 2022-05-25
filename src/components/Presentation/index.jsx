@@ -32,12 +32,12 @@ function Presentation({ name, description, facebook, numberContact, github, imag
           <ImageInformation src={image} alt="" />
         </ImageWrapper>
         <InformationWrapper>
-          <p style={{ fontSize: '2.5rem' }}>
+          <p style={{ fontSize: '2.6rem' }}>
             Hola soy
             {' '}
             {name}
           </p>
-          <div style={{ fontSize: '1.2rem' }}>
+          <div style={{ fontSize: '1.1rem', textAlign: 'justify' }}>
             <p>{description}</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
