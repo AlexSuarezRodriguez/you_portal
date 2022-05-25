@@ -37,7 +37,7 @@ function Presentation({ name, description, facebook, numberContact, github, imag
             {' '}
             {name}
           </p>
-          <div style={{ fontSize: '1.2rem' }}>
+          <div style={{ fontSize: '1.2rem', textAlign: 'justify' }}>
             <p>{description}</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>

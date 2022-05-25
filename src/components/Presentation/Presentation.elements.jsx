@@ -52,7 +52,7 @@ export const InformationWrapper = styled.div`
   height: 100%;
   align-items: center;
   background-color: #171c27;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   padding-left:2rem ;
   color: #ebc08b;
   border-radius:12px ;
