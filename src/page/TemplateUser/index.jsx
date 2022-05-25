@@ -35,7 +35,7 @@ function HomepageUSer() {
       const userData = await getDocument('informationUser', params.idUser);
       setData(userData);
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   };
 
