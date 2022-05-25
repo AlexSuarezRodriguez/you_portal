@@ -22,13 +22,17 @@ export async function setDocument(collectionName, data) {
 }
 
 export async function getDocument(collectionName, id) {
-  const docRef = doc(db, collectionName, id);
-  const docSnap = await getDoc(docRef);
+  try {
+    const docRef = doc(db, collectionName, id);
+    const docSnap = await getDoc(docRef);
 
-  if (!docSnap.exists()) {
-    return null;
+    if (!docSnap.exists()) {
+      return alert('documento no existe');
+    }
+    return docSnap.data();
+  } catch (error) {
+    return alert(error);
   }
-  return docSnap.data();
 }
 export async function createUrlImage(e) {
   const imageLocal = e.target.files[0];

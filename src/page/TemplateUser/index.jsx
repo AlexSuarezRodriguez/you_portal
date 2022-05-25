@@ -5,13 +5,11 @@ import About from '../../components/About';
 import Services from '../../components/Services';
 import Contact from '../../components/Contact';
 import Formation from '../../components/Formation';
-import { useAuth } from '../../context/authContext';
 import { getDocument } from '../../create.collections';
 
 function HomepageUSer() {
-  const { loading } = useAuth();
   const params = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const {
     name,
     description,
@@ -31,12 +29,18 @@ function HomepageUSer() {
     formation,
     experienceJob,
   } = data;
-  if (loading) return <h1>Cargando</h1>;
 
-  useEffect(async () => {
-    await getDocument('informationUser', params.idUser).then((element) => {
-      setData(element);
-    });
+  const setUSerData = async () => {
+    try {
+      const userData = await getDocument('informationUser', params.idUser);
+      setData(userData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    setUSerData();
   }, []);
 
   return (
