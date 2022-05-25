@@ -1,15 +1,18 @@
+import { useAuth } from '../../context/authContext';
 import { useStepperContext } from '../../context/StepperContext';
 import { createUrlImage } from '../../create.collections';
 
 export default function Account() {
   const { userData, setUserData } = useStepperContext();
+  const { user } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
   const handleChangeImage = (e) => {
-    createUrlImage(e).then((element) => {
+    const localFile = e.target.files[0];
+    createUrlImage(localFile, user.uid).then((element) => {
       setUserData({ ...userData, image: element });
     });
   };
