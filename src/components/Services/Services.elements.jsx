@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ServiceContainer = styled.section`
   width: 100%;
   height: 650px;
+  background-color: #171c27;
 `;
 export const ServiceWrapper = styled.div`
   padding: 20px ;
@@ -14,17 +15,16 @@ export const ServiceWrapper = styled.div`
   max-width: 960px;
   height: 90%;
   align-items: center;
-  background-color: #171c27;
   border: 2px solid white;
   display: grid;
   grid-template-rows: 1fr 5fr;
-
+  border-radius: 12px ;
+  background:rgba(0,0,0,0.15) ;
 `;
 export const ServiceTitle = styled.div`
   display:flex ;
   justify-content: center;
   align-items:center ;
-  background-color: #171c27;
   width:100% ;
   height:100% ;
   color:#ebc08b;

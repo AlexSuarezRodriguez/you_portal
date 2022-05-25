@@ -4,6 +4,7 @@ export const AboutContainer = styled.section`
   width: 100%;
   height: 650px;
   font-family:'Poppins' ;
+  background-color: #171c27;
 `;
 export const AboutWrapper = styled.div`
   padding: 20px ;
@@ -15,17 +16,16 @@ export const AboutWrapper = styled.div`
   max-width: 960px;
   height: 90%;
   align-items: center;
-  background-color: #171c27;
+  background:rgba(0,0,0,0.25) ;
   border: 2px solid white;
   display: grid;
   grid-template-rows: 1fr 5fr;
-
+  border-radius: 12px ;
 `;
 export const AboutTitle = styled.div`
   display:flex ;
   justify-content: center;
   align-items:center ;
-  background-color: #171c27;
   width:100% ;
   height:100% ;
   color:#ebc08b;
@@ -47,7 +47,6 @@ export const AboutImage = styled.img`
 export const AboutInformation = styled.div`
   width:100% ;
   height:100% ;
-  background-color: #171c27;
   grid-template-rows: 2fr 1fr 1fr;
   display:grid ;
 `;
