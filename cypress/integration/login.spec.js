@@ -44,14 +44,6 @@ describe('you portal register', () => {
     cy.get(':nth-child(2) > :nth-child(1) > .my-2 > #institute').clear().type(faker.company.bs());
     cy.get(':nth-child(2) > :nth-child(2) > .my-2 > #achievements').clear().type(faker.lorem.paragraph());
     cy.get(':nth-child(2) > .justify-end > [data-cy="button-saveAcademic"]').click();
-    cy.get('[data-cy="button-addEducation"]').click();
-    cy.get(':nth-child(3) > :nth-child(1) > .my-2 > #institute').clear().type(faker.company.bs());
-    cy.get(':nth-child(3) > :nth-child(2) > .my-2 > #achievements').clear().type(faker.lorem.paragraph());
-    cy.get(':nth-child(3) > .justify-end > [data-cy="button-saveAcademic"]').click();
-    cy.get('[data-cy="button-addEducation"]').click();
-    cy.get(':nth-child(4) > :nth-child(1) > .my-2 > #institute').clear().type(faker.company.bs());
-    cy.get(':nth-child(4) > :nth-child(2) > .my-2 > #achievements').clear().type(faker.lorem.paragraph());
-    cy.get(':nth-child(4) > .justify-end > [data-cy="button-saveAcademic"]').click();
     cy.get('[data-cy="button-next"]').click();
     // section job
     cy.get(':nth-child(1) > :nth-child(1) > .my-2 > #business').clear().type(faker.company.bs());
@@ -61,14 +53,6 @@ describe('you portal register', () => {
     cy.get(':nth-child(2) > :nth-child(1) > .my-2 > #business').clear().type(faker.company.bs());
     cy.get(':nth-child(2) > :nth-child(2) > .my-2 > #descriptionJob').clear().type(faker.lorem.paragraph());
     cy.get(':nth-child(2) > .justify-end > [data-cy="button-saveAcademic"]').click();
-    cy.get('[data-cy="button-addEducation"]').click();
-    cy.get(':nth-child(3) > :nth-child(1) > .my-2 > #business').clear().type(faker.company.bs());
-    cy.get(':nth-child(3) > :nth-child(2) > .my-2 > #descriptionJob').clear().type(faker.lorem.paragraph());
-    cy.get(':nth-child(3) > .justify-end > [data-cy="button-saveAcademic"]').click();
-    cy.get('[data-cy="button-addEducation"]').click();
-    cy.get(':nth-child(4) > :nth-child(1) > .my-2 > #business').clear().type(faker.company.bs());
-    cy.get(':nth-child(4) > :nth-child(2) > .my-2 > #descriptionJob').clear().type(faker.lorem.paragraph());
-    cy.get(':nth-child(4) > .justify-end > [data-cy="button-saveAcademic"]').click();
     cy.get('[data-cy="button-next"]').click();
     // section Contact
     cy.get('#email').clear().type(randomEmail);
@@ -77,9 +61,9 @@ describe('you portal register', () => {
     cy.get('#github').clear().type('https://github.com/');
     cy.get('#numberContact').clear().type('+573195230949');
     cy.get('[data-cy="button-next"]').click();
-    cy.wait(9000);
+    cy.wait(5000);
     cy.get('[data-cy="button-next"]').click();
-    cy.wait(2000);
+    cy.wait(1000);
     cy.get('[data-cy="button-sendInformation"]').click();
   });
 });
